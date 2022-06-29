@@ -4,48 +4,50 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 
 const network = NETWORK.eth;
 
+// ============== 可能用到的设置 ==================
 // General metadata for Ethereum
 const namePrefix = "Your Collection";
 const description = "Remember to replace this description";
 const baseUri = "ipfs://NewUriToReplace";
 
-const solanaMetadata = {
-  symbol: "YC",
-  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
-  external_url: "https://www.youtube.com/c/hashlipsnft",
-  creators: [
-    {
-      address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
-      share: 100,
-    },
-  ],
-};
-
-// If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 100,
     layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "10_body" },
+      { name: "09_foot" },
+      { name: "08_belly" },
+      { name: "07_head" },
+      { name: "06_hand" },
+      { name: "05_arm" },
+      { name: "04_shadow" },
+      { name: "03_mouth" },
+      { name: "02_eye" },
+      { name: "01_border" },
     ],
   },
 ];
+
+const format = {
+  width: 2400,
+  height: 2400,
+  smoothing: false,
+};
+
+const background = {
+  generate: true,
+  brightness: "80%",
+  static: true,
+  default: "#00000000",
+};
+// ===============================================
+
+
 
 const shuffleLayerConfigurations = false;
 
 const debugLogs = false;
 
-const format = {
-  width: 512,
-  height: 512,
-  smoothing: false,
-};
 
 const gif = {
   export: false,
@@ -68,14 +70,7 @@ const text = {
 };
 
 const pixelFormat = {
-  ratio: 2 / 128,
-};
-
-const background = {
-  generate: true,
-  brightness: "80%",
-  static: false,
-  default: "#000000",
+  ratio: 128 / 128,
 };
 
 const extraMetadata = {};
@@ -98,6 +93,18 @@ const preview_gif = {
   quality: 100,
   delay: 500,
   imageName: "preview.gif",
+};
+
+const solanaMetadata = {
+  symbol: "YC",
+  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
+  external_url: "https://www.youtube.com/c/hashlipsnft",
+  creators: [
+    {
+      address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
+      share: 100,
+    },
+  ],
 };
 
 module.exports = {
